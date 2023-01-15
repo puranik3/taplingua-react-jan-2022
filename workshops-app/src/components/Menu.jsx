@@ -15,6 +15,9 @@ const Menu = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="/workshops">Workshops List</a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/workshops/add">Add a Workshop</a>
+                        </li>
                     </ul>
                 </div>
             </div>
