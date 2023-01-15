@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { postWorkshop } from '../../services/workshops';
 
 const AddWorkshop = () => {
     const nameRef = useRef();
@@ -16,7 +17,12 @@ const AddWorkshop = () => {
             imageUrl: imageUrlRef.current.value,
         };
 
-        console.log( workshop );
+        if( workshop.name.trim() === '' || workshop.description.trim() === '' || workshop.imageUrl.trim() === '' ) {
+            alert( 'Fill out all inputs' );
+        } else {
+            // all good!
+            postWorkshop( workshop );
+        }
     };
 
     return (
