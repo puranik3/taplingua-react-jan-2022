@@ -7,9 +7,13 @@ const getWorkshops = async () => {
 };
 
 const postWorkshop = async ( workshop ) => {
-    const response = await axios.post( `https://workshops-server.herokuapp.com/workshops`, workshop, {
-        'Content-Type': 'application/json'
-    });
+    const response = await axios.post(
+        `https://workshops-server.herokuapp.com/workshops`,
+        workshop,
+        {
+            'Content-Type': 'application/json'
+        }
+    );
     return response.data;
 };
 
