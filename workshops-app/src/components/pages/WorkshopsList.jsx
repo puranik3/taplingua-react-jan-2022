@@ -3,6 +3,7 @@ import { getWorkshops } from '../../services/workshops';
 
 const WorkshopsList = () => {
     const [ workshops, setWorkshops ] = useState( [] );
+    const [ loading, setLoading ] = useState( true );
 
     useEffect(
         // 1st argument -> function to call
@@ -11,6 +12,7 @@ const WorkshopsList = () => {
                 const workshops = await getWorkshops();
                 console.log( workshops ); // shows the array
                 setWorkshops( workshops );
+                setLoading( false );
             };
 
             helper();
@@ -23,18 +25,26 @@ const WorkshopsList = () => {
         <div>
             <h1>List of workshops</h1>
             <hr />
+            {
+                loading && (
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                )
+            }
             <div className="row">
                 {
-                    // generate an array of JSX element (React elements)
+                    // generate an array of JSX elements (React elements) using map()
+                    // [ <div>...</div>, <div>...</div>, ..., <div>...</div> ]
                     workshops.map( w => (
                         <div className="col-12 col-md-3 col-lg-4 d-flex">
                             <div className="card p-3 w-100 my-3">
                                 <img src={w.imageUrl} className="card-img-top" alt={w.name} />
                                 <div className="card-body">
                                     <h5 className="card-title">{w.name}</h5>
-                                    <div className="card-text">
-                                        {w.description}
-                                    </div>
+                                    <div className="card-text" dangerouslySetInnerHTML={ { __html: w.description } }></div>
                                 </div>
                             </div>
                         </div>
