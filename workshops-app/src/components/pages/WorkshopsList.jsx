@@ -1,14 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getWorkshops } from '../../services/workshops';
 
 const WorkshopsList = () => {
+    const [ workshops, setWorkshops ] = useState( [] );
+
     useEffect(
         // 1st argument -> function to call
         () => { 
             const helper = async () => {
                 const workshops = await getWorkshops();
                 console.log( workshops ); // shows the array
-            }
+                setWorkshops( workshops );
+            };
 
             helper();
         },
@@ -17,7 +20,12 @@ const WorkshopsList = () => {
     );
 
     return (
-        <div>Workshops List page</div>
+        <div>
+            <h1>List of workshops</h1>
+            <hr />
+            {workshops.length}
+        </div>
+
     );
 }
  
