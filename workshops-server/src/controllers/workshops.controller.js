@@ -1,7 +1,9 @@
+const workshops = require( '../db/data/workshops.json' );
+
 const getWorkshops = ( req, res ) => {
     res.json({
         success: true,
-        data: 'I will send an array of workshops'
+        data: workshops
     });
 };
 
