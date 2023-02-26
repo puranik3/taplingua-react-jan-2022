@@ -8,15 +8,28 @@ const getWorkshops = async ( req, res ) => {
     //     data: workshops
     // });
 
-    const workshops = await Workshop.find();
-    res.json({
-        success: true,
-        data: workshops
-    });
+    try {
+        const workshops = await Workshop.find();
+        res.json({
+            success: true,
+            data: workshops
+        });
+    } catch( error ) {
+        res.json({
+            success: false,
+            message: error.message
+        });
+    }
 };
 
 const postWorkshop = ( req, res ) => {
+    const data = req.body;
 
+    res.json({
+        success: true,
+        // data: data
+        data
+    });
 };
 
 module.exports = {

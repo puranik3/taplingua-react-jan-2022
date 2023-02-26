@@ -1,0 +1,14 @@
+{
+    "name": "Express JS",
+    "category": "backend",
+    "startDate": "2023-02-25",
+    "endDate": "2023-02-26",
+    "startTime": {
+        "hours": 14
+    },
+    "endTime": {
+        "hours": 12,
+        "minutes": 30
+    },
+    "description": "The workshops helps you get started with Express basics, and build a server using MVC architecture. The DB is a MongoDB cluster on Atlas."
+}
