@@ -69,5 +69,6 @@ const deleteWorkshop = async () => {
 module.exports = {
     getWorkshops,
     postWorkshop,
-    patchWorkshop
+    patchWorkshop,
+    deleteWorkshop
 };
