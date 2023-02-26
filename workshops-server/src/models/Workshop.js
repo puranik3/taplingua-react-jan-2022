@@ -54,4 +54,5 @@ const workshopSchema = new mongoose.Schema({
 });
 
 // creates a class called 'Workshop'
+// a MongoDB collection called "workshops" will be created later
 mongoose.model( 'Workshop', workshopSchema );
