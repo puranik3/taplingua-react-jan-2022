@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "6f709fee-de83-41c5-874e-442c360861b6",
+		"name": "Workshops Server | Taplingua | Sahyadri | Feb 2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "715971"
+	},
+	"item": [
+		{
+			"name": "List of workshops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/workshops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"workshops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new workshop",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"JavaScript\",\n    \"category\": \"language\",\n    \"startDate\": \"2023-02-25\",\n    \"endDate\": \"2023-02-26\",\n    \"startTime\": {\n        \"hours\": 14\n    },\n    \"endTime\": {\n        \"hours\": 12,\n        \"minutes\": 30\n    },\n    \"imageUrl\": \"https://mpng.vectorpng.com/20190627/ttx/kisspng-javascript-computer-icons-scalable-vector-graphics-list-of-javascript-enhancements-fandom-developers-5d145895b06253.7824611015616144857225.jpg\",\n    \"description\": \"The workshops helps you get started with Express basics, and build a server using MVC architecture. The DB is a MongoDB cluster on Atlas.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/workshops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"workshops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a workshop",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Node JS, Express JS and MongoDB\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/workshops/63fb00d4fd8c15fb7ab07b3f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"workshops",
+						"63fb00d4fd8c15fb7ab07b3f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
