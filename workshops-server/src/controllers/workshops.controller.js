@@ -3,11 +3,6 @@ const mongoose = require( 'mongoose' );
 const Workshop = mongoose.model( 'Workshop' );
 
 const getWorkshops = async ( req, res ) => {
-    // res.json({
-    //     success: true,
-    //     data: workshops
-    // });
-
     try {
         const workshops = await Workshop.find();
         res.json({
@@ -15,22 +10,32 @@ const getWorkshops = async ( req, res ) => {
             data: workshops
         });
     } catch( error ) {
-        res.json({
+        res.status( 500 ).json({
             success: false,
             message: error.message
         });
     }
 };
 
-const postWorkshop = ( req, res ) => {
+const postWorkshop = async ( req, res ) => {
     const data = req.body;
 
-    res.json({
-        success: true,
-        // data: data
-        data
-    });
-};
+    try {
+        const addedWorkshop = await Workshop.create( data );
+        res.json({
+            success: true,
+            // data: data
+            data: addedWorkshop
+        });
+    } catch( error ) {
+        // error.name is used to know what kind of error occured
+        // ideally status code should be 400 for BAD request (incorrect format of data etc.)
+        res.status( 500 ).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
 
 module.exports = {
     getWorkshops,
