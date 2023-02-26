@@ -50,7 +50,8 @@ const workshopSchema = new mongoose.Schema({
     category: {
         type: String,
         enum: [ 'frontend', 'backend', 'database', 'language', 'data science', 'aiml' ]
-    }
+    },
+    imageUrl: String
 });
 
 // creates a class called 'Workshop'
