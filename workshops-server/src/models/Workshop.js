@@ -12,7 +12,7 @@ const workshopSchema = new mongoose.Schema({
     },
     endDate: {
         type: Date,
-        requireD: true
+        required: true
     },
     startTime: {
         hours: {
