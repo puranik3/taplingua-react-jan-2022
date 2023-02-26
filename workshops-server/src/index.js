@@ -1,5 +1,6 @@
-const express = require( 'express' );
 require( './db/init.js' ); // the file executes and connects to the DB
+
+const express = require( 'express' );
 const workshopsRouter = require( './routes/workshops.route' );
 
 const app = express();

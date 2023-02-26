@@ -1,3 +1,6 @@
+// register our models
+require( '../models/Workshop' );
+
 const { dbConnectionStr } = require( '../../config' );
 
 const mongoose = require( 'mongoose' );
