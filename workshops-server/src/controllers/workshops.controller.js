@@ -22,7 +22,7 @@ const postWorkshop = async ( req, res ) => {
 
     try {
         const addedWorkshop = await Workshop.create( data );
-        res.json({
+        res.status( 201 ).json({
             success: true,
             // data: data
             data: addedWorkshop
@@ -64,6 +64,28 @@ const patchWorkshop = async ( req, res ) => {
 const deleteWorkshop = async () => {
     // delete a document - Workshop.findByIdAndDelete
     // https://mongoosejs.com/docs/api/model.html#model_Model-findOneAndDelete
+    const id = req.params.id;
+
+    try {
+        const deletedWorkshop = await Workshop.findOneAndDelete( id );
+        if( deletedWorkshop ) {
+            res.json({
+                success: true
+            });
+        } else {
+            res.status( 404 ).json({
+                success: false,
+                message: 'No such workshop'
+            });
+        }
+    } catch( error ) {
+        // error.name is used to know what kind of error occured
+        // ideally status code should be 400 for BAD request (incorrect format of data etc.)
+        res.status( 500 ).json({
+            success: false,
+            message: error.message
+        });
+    }
 };
 
 module.exports = {
