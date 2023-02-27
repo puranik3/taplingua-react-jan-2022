@@ -81,6 +81,26 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Delete a workshop",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/workshops/63fb00f89c2b9aa1fee3d273",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"workshops",
+						"63fb00f89c2b9aa1fee3d273"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

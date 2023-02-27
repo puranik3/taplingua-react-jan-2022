@@ -61,7 +61,7 @@ const patchWorkshop = async ( req, res ) => {
     }
 };
 
-const deleteWorkshop = async () => {
+const deleteWorkshop = async ( req, res ) => {
     // delete a document - Workshop.findByIdAndDelete
     // https://mongoosejs.com/docs/api/model.html#model_Model-findOneAndDelete
     const id = req.params.id;
